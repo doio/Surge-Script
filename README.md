@@ -1,13 +1,13 @@
-# Surge-Script
-#For Bilibii and Zhihu
 
-##Zhihu        下载旧版本：4.18.0   version id：827525917
+# For Bilibii and Zhihu
 
-##BiliBili     下载哔哩哔哩**概念版(蓝色)**：2.0
+## Zhihu        下载旧版本：4.18.0   version id：827525917
 
-##ps：BiliBili 规则比较激进，自行修改
+## BiliBili     下载哔哩哔哩**概念版(蓝色)**：2.0
 
-#解释下为什么不建议新版知乎 和 不支持主版bilbili(粉色)
+## ps：BiliBili 规则比较激进，自行修改
+
+# 解释下为什么不建议新版知乎 和 不支持主版bilbili(粉色)
 
 - 新版知乎规则也可以使用，不过不能保证后续更新是否使规则失效。推荐旧版，旧版本功能已足够，无需更新，也不需要在知乎更新后再更新规则。
 
