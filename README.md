@@ -5,8 +5,12 @@ Zhihu        下载旧版本：4.18.0   version id：827525917
 
 BiliBili     下载哔哩哔哩概念：2.0
 
+旧版本功能已足够，无需更新
+
+ps：BiliBili 规则比较激进，自行修改
 ```
 [Rule]
+//Thirdparty
 DOMAIN,pingma.qq.com,REJECT
 DOMAIN-SUFFIX,fusion.qq.com,REJECT
 
