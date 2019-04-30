@@ -4,8 +4,7 @@ For Bilibii and Zhihu
 Zhihu        下载旧版本：4.18.0   version id：827525917
 BiliBili     下载哔哩哔哩概念：2.0
 
-
-
+```
 [Rule]
 DOMAIN,pingma.qq.com,REJECT
 DOMAIN-SUFFIX,fusion.qq.com,REJECT
@@ -58,3 +57,4 @@ http-response https://app.bilibili.com/x/resource/show/tab script-path=https://r
 http-response https://app.bilibili.com/x/channel/list script-path=https://raw.githubusercontent.com/onewayticket255/pic/master/surge%20bilibili%20channel.js
 http-response https://app.bilibili.com/x/v2/feed script-path=https://raw.githubusercontent.com/onewayticket255/pic/master/surge%20bilibili%20feed.js
 http-response https://app.bilibili.com/x/v2/account/mine script-path=https://raw.githubusercontent.com/onewayticket255/pic/master/surge%20bilibili%20account.js
+```
