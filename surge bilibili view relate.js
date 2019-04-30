@@ -9,6 +9,6 @@ obj1.forEach(function (element, index, array) {
     }
 
    });
-
+obj['data']['relates']=obj1
 
 JSON.stringify(obj);
