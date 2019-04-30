@@ -1,13 +1,13 @@
 
-# For Bilibii and Zhihu
+### For Bilibii and Zhihu
 
-## Zhihu        下载旧版本：4.18.0   version id：827525917
+- Zhihu        下载旧版本：4.18.0   version id：827525917
 
-## BiliBili     下载哔哩哔哩**概念版(蓝色)**：2.0
+- BiliBili     下载哔哩哔哩**概念版(蓝色)**：2.0
 
-## ps：BiliBili 规则比较激进，自行修改
+- ps：BiliBili 规则比较激进，自行修改
 
-# 解释下为什么不建议新版知乎 和 不支持主版bilbili(粉色)
+### 解释下为什么不建议新版知乎 和 不支持主版bilbili(粉色)
 
 - 新版知乎规则也可以使用，不过不能保证后续更新是否使规则失效。推荐旧版，旧版本功能已足够，无需更新，也不需要在知乎更新后再更新规则。
 
