@@ -4,7 +4,7 @@ obj1=obj['data']['relates'];
 
 obj1.forEach(function (element, index, array) {
    
-    if(element.['is_ad']== true){      
+    if(element.hasOwnProperty('is_ad')){      
        obj1.splice(index,1)  
     }
 
