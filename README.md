@@ -1,35 +1,68 @@
 
-### For Bilibii and Zhihu
+### For Bilibii, Zhihu, Netease Music
 
-- Zhihu        下载旧版本：4.18.0   version id：827525917
+- Zhihu          旧版本：4.18.0   Version Id：827525917
 
-- BiliBili     下载哔哩哔哩**概念版(蓝色)**：2.0
+- BiliBili       哔哩哔哩**概念版(蓝色)**：2.0
 
-- BiliBili 规则比较激进，自行修改
+- Netease Music  旧版本：5.9.0     Version Id：830130298
 
-- 确保在开启了规则的情况下打开app（部分内容有缓存），不成功尝试重新下载app
+只保证我使用版本的去广告。而且我也不会再升级，这些app本身功能已足够。
 
-### 解释下为什么不建议新版知乎 和 不建议主版bilbili(粉色)
+知乎:看能不能MITM api.zhihu.com 看缘分（很可能失败）
+B站:完美
+网易云:足够用了
 
-- 新版知乎规则也可以使用，不过不能保证后续更新是否使规则失效。推荐旧版，旧版本功能已足够，无需更新，也不需要在知乎更新后再更新规则。
-
-- bilibili主版（粉色版）也可以使用，不过规则是基于概念版的，基本去广告功能还在，其他功能基本失效，而且非常不稳定。并且概念版比主版更简洁。
-
-```
 [Rule]
-//Thirdparty
-DOMAIN,pingma.qq.com,REJECT
-DOMAIN-SUFFIX,fusion.qq.com,REJECT
 
-//Zhihu
-DOMAIN,crash2.zhihu.com,REJECT
-DOMAIN,vdn.vzuu.com,REJECT
-DOMAIN,sugar.zhihu.com,REJECT
-AND,((USER-AGENT,ZhihuHybrid*), (DOMAIN,api.zhihu.com)),REJECT
-DOMAIN,unpkg.zhimg.com,REJECT
-DOMAIN,lens.zhihu.com,REJECT
+//Advertise
+DOMAIN-KEYWORD,inmobi,REJECT
+DOMAIN,app.adjust.com,REJECT
+DOMAIN-KEYWORD,adsystem,REJECT
+DOMAIN-KEYWORD,appsflyer,REJECT
+DOMAIN,graph.facebook.com,REJECT
+DOMAIN-SUFFIX,app-measurement.com,REJECT
+DOMAIN-KEYWORD,fenxi,REJECT
+DOMAIN-KEYWORD,uploadMobileData,REJECT
+DOMAIN-KEYWORD,omniture,REJECT
+DOMAIN-SUFFIX,mob.com,REJECT
+DOMAIN,applog.uc.cn,REJECT
+DOMAIN,api.joybj.com,REJECT
+DOMAIN,api.whizzone.com,REJECT
+DOMAIN-KEYWORD,track,REJECT
+DOMAIN-KEYWORD,traffic,REJECT
+DOMAIN-SUFFIX,mmstat.com,REJECT
+DOMAIN-KEYWORD,umeng,REJECT
+DOMAIN-SUFFIX,4paradigm.com,REJECT
+DOMAIN-KEYWORD,talkingdata,REJECT
+DOMAIN-SUFFIX,mopub.com,REJECT
+DOMAIN-KEYWORD,logger,REJECT
+DOMAIN-SUFFIX,adthor.com,REJECT
+DOMAIN-SUFFIX,catch.gift,REJECT
+DOMAIN-SUFFIX,pubnative.net,REJECT
+DOMAIN-SUFFIX,flurry.com,REJECT
+
+//Netease Music
+DOMAIN,admusicpic.music.126.net,REJECT
+DOMAIN,iadmusicmat.music.126.net,REJECT
+AND,((USER-AGENT,%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90*), (NOT,((DOMAIN-SUFFIX,music.126.net)))),REJECT
+USER-AGENT,neteasemusic*,REJECT
+
+//QQ
+DOMAIN,pingma.qq.com,REJECT
+DOMAIN,fusion.qq.com,REJECT
+DOMAIN,lbs.map.qq.com,REJECT
+DOMAIN,ios.bugly.qq.com,REJECT
+DOMAIN,up-hl.3g.qq.com,REJECT
+DOMAIN,cgi.connect.qq.com,REJECT
+
+//ZhiHu
+AND,((USER-AGENT,ZhihuHybrid*), (NOT,((DOMAIN,www.zhihu.com))), (NOT,((DOMAIN-SUFFIX,zhimg.com)))),REJECT
+AND,((USER-AGENT,osee2*), (NOT,((DOMAIN,api.zhihu.com))), (NOT,((DOMAIN-SUFFIX,zhimg.com)))),REJECT
+USER-AGENT,AVOS*,REJECT
 
 //BiliBili
+AND,((USER-AGENT,bili-blue*), (DOMAIN,api.weibo.com)),REJECT
 DOMAIN,thirdparty.biliapi.com,REJECT
 DOMAIN,data.bilibili.com,REJECT
 DOMAIN,cm.bilibili.com,REJECT
@@ -44,18 +77,18 @@ https://api.zhihu.com/app_config - reject
 https://api.zhihu.com/ab/api - reject
 https://api.zhihu.com/search/top_search - reject
 https://api.zhihu.com/banner - reject
-dataflow - reject
-openapi - reject
-amdc - reject
-featured-comment-ad - reject
+https://api.zhihu.com/search/preset_words - reject
+https://api.zhihu.com/zst/events - reject
+https://app.bilibili.com/x/v2/param - reject
 https://app.bilibili.com/x/v2/search/defaultword - reject
 https://app.bilibili.com/x/v2/search/recommend - reject
 https://app.bilibili.com/x/v2/search/hot - reject
 https://app.bilibili.com/x/v2/rank.*rid=168 - reject
 https://app.bilibili.com/x/v2/rank.*rid=5 - reject
 https://api.bilibili.com/pgc/season/rank/cn - reject
-https://api.zhihu.com/search/preset_words - reject
-https://api.zhihu.com/zst/events - reject
+http://interface.music.163.com/eapi/ad - reject
+http://wap.cmpassport.com/openapi - reject
+http://interface.music.163.com/api/sp - reject
 
 
 [MITM]
