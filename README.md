@@ -1,7 +1,7 @@
 
 ### For Bilibii, Zhihu, Netease Music
 
-- Zhihu          旧版本：4.9.0        Version Id 825679462  
+- Zhihu          1年内版本都可以  
 
 - BiliBili       哔哩哔哩**概念版(蓝色)**：2.0
 
@@ -12,9 +12,8 @@
 ### 功能
 - 知乎:
 
-  * 旧版本：4.9.0是知乎最后一个良心版本，可以MITM，基本功能全有。配合[Script]完美去广告
+  * 有些时候无法MITM api.zhihu.com, 立刻重启Surge。
 
-  * 4.9.0以后的新版本 无法MITM api.zhihu.com 所以无法去内嵌广告，只能去启动和回答下广告，所以非常不推荐用新版。
 
 - B站:
 
@@ -83,9 +82,15 @@ DOMAIN,cgi.connect.qq.com,REJECT
 
 
 [URL Rewrite]
+https://api.zhihu.com/ab/api - reject
+https://api.zhihu.com/zst/events - reject
+https://api.zhihu.com/ad-style-service/request - reject
+https://api.zhihu.com/real_time - reject
+https://api.zhihu.com/banners - reject
+https://api.zhihu.com/market/popover - reject
 https://api.zhihu.com/launch - reject
 https://api.zhihu.com/search/top_search - reject
-https://api.zhihu.com/questions/.*/banner_in_answer_list - reject
+https://api.zhihu.com/search/tabs  header
 
 https://app.bilibili.com/x/v2/param - reject
 https://app.bilibili.com/x/v2/search/defaultword - reject
