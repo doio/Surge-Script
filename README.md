@@ -1,17 +1,17 @@
 
 ### For Bilibii, Zhihu, Netease Music
 
-- Zhihu          旧版本：4.18.0   Version Id：827525917
+- Zhihu          最新版本：4.40.0  
 
 - BiliBili       哔哩哔哩**概念版(蓝色)**：2.0
 
-- Netease Music  旧版本：5.9.0     Version Id：830130298
+- Netease Music  必须旧版本：5.9.0     Version Id：830130298
 
 ### 功能
-- 只保证我使用版本的去广告。而且我也不会再升级，这些app本身功能已足够。
-- 知乎:看能不能MITM api.zhihu.com 看缘分（很可能失败）
+
+- 知乎:新版本无法MITM api.zhihu.com 所以无法去内嵌广告，只能去启动和回答下广告。
 - B站:完美
-- 网易云:足够用了
+- 网易云:无法MITM interface.music.163.com 但足够用了。只保证我使用版本的去广告。而且我也不会再升级，本身功能已足够。
 
 
 ```
@@ -58,9 +58,9 @@ DOMAIN,ios.bugly.qq.com,REJECT
 DOMAIN,up-hl.3g.qq.com,REJECT
 DOMAIN,cgi.connect.qq.com,REJECT
 
-//ZhiHu
-AND,((USER-AGENT,ZhihuHybrid*), (NOT,((DOMAIN,www.zhihu.com))), (NOT,((DOMAIN-SUFFIX,zhimg.com)))),REJECT
-AND,((USER-AGENT,osee2*), (NOT,((DOMAIN,api.zhihu.com))), (NOT,((DOMAIN-SUFFIX,zhimg.com)))),REJECT
+//ZhiHu  最新版本
+AND,((USER-AGENT,ZhihuHybrid*), (NOT,((DOMAIN,www.zhihu.com))),(NOT,((DOMAIN,static.zhihu.com))), (NOT,((DOMAIN-SUFFIX,zhimg.com)))),REJECT
+AND,((USER-AGENT,osee2*),(NOT,((DOMAIN,api.zhihu.com))), (NOT,((DOMAIN-SUFFIX,zhimg.com)))),REJECT
 USER-AGENT,AVOS*,REJECT
 
 //BiliBili
