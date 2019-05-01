@@ -1,21 +1,42 @@
 
 ### For Bilibii, Zhihu, Netease Music
 
-- Zhihu          最新版本：4.40.0  
+- Zhihu          旧版本：4.9.0        Version Id 825679462  
 
 - BiliBili       哔哩哔哩**概念版(蓝色)**：2.0
 
 - Netease Music  必须旧版本：5.9.0     Version Id：830130298
 
 ### 功能
-
-- 知乎:新版本无法MITM api.zhihu.com 所以无法去内嵌广告，只能去启动和回答下广告。
-- B站:完美
-- 网易云:无法MITM interface.music.163.com 但足够用了。只保证我使用版本的去广告。而且我也不会再升级，本身功能已足够。
+- 知乎:
+*旧版本：4.9.0是知乎最后一个良心版本，可以MITM，基本功能全有。配合[Script]完美去广告
+*4.9.0以后的新版本 无法MITM api.zhihu.com 所以无法去内嵌广告，只能去启动和回答下广告，所以非常不推荐用新版。
+- B站:
+*完美去广告
+- 网易云:
+*无法MITM interface.music.163.com 但足够用了。只保证我使用版本的去广告(必须旧版本：5.9.0)。而且我也不会再升级，本身功能已足够。
 
 
 ```
 [Rule]
+
+//Netease music
+DOMAIN,admusicpic.music.126.net,REJECT
+DOMAIN,iadmusicmat.music.126.net,REJECT
+AND,((USER-AGENT,%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90*), (NOT,((DOMAIN-SUFFIX,music.126.net)))),REJECT
+USER-AGENT,neteasemusic*,REJECT
+
+//Zhihu
+AND,((USER-AGENT,ZhihuHybrid*), (NOT,((DOMAIN,www.zhihu.com))),(NOT,((DOMAIN,static.zhihu.com))), (NOT,((DOMAIN-SUFFIX,zhimg.com)))),REJECT
+AND,((USER-AGENT,osee2*),(NOT,((DOMAIN,api.zhihu.com))),(NOT,((DOMAIN,zhihu-web-analytics.zhihu.com))),(NOT,((DOMAIN,www.zhihu.com))), (NOT,((DOMAIN-SUFFIX,zhimg.com)))),REJECT
+USER-AGENT,AVOS*,REJECT
+
+//BiliBili
+AND,((USER-AGENT,bili-blue*), (DOMAIN,api.weibo.com)),REJECT
+DOMAIN,thirdparty.biliapi.com,REJECT
+DOMAIN,data.bilibili.com,REJECT
+DOMAIN,cm.bilibili.com,REJECT
+DOMAIN,miniapp.bilibili.com,REJECT
 
 //Advertise
 DOMAIN-KEYWORD,inmobi,REJECT
@@ -44,12 +65,6 @@ DOMAIN-SUFFIX,catch.gift,REJECT
 DOMAIN-SUFFIX,pubnative.net,REJECT
 DOMAIN-SUFFIX,flurry.com,REJECT
 
-//Netease Music
-DOMAIN,admusicpic.music.126.net,REJECT
-DOMAIN,iadmusicmat.music.126.net,REJECT
-AND,((USER-AGENT,%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90*), (NOT,((DOMAIN-SUFFIX,music.126.net)))),REJECT
-USER-AGENT,neteasemusic*,REJECT
-
 //QQ
 DOMAIN,pingma.qq.com,REJECT
 DOMAIN,fusion.qq.com,REJECT
@@ -58,29 +73,12 @@ DOMAIN,ios.bugly.qq.com,REJECT
 DOMAIN,up-hl.3g.qq.com,REJECT
 DOMAIN,cgi.connect.qq.com,REJECT
 
-//ZhiHu  最新版本
-AND,((USER-AGENT,ZhihuHybrid*), (NOT,((DOMAIN,www.zhihu.com))),(NOT,((DOMAIN,static.zhihu.com))), (NOT,((DOMAIN-SUFFIX,zhimg.com)))),REJECT
-AND,((USER-AGENT,osee2*),(NOT,((DOMAIN,api.zhihu.com))), (NOT,((DOMAIN-SUFFIX,zhimg.com)))),REJECT
-USER-AGENT,AVOS*,REJECT
-
-//BiliBili
-AND,((USER-AGENT,bili-blue*), (DOMAIN,api.weibo.com)),REJECT
-DOMAIN,thirdparty.biliapi.com,REJECT
-DOMAIN,data.bilibili.com,REJECT
-DOMAIN,cm.bilibili.com,REJECT
-DOMAIN,miniapp.bilibili.com,REJECT
 
 [URL Rewrite]
 https://api.zhihu.com/launch - reject
-https://api.zhihu.com/ad-style-service - reject
-https://api.zhihu.com/market/popover - reject
-https://api.zhihu.com/real_time - reject
-https://api.zhihu.com/app_config - reject
-https://api.zhihu.com/ab/api - reject
 https://api.zhihu.com/search/top_search - reject
-https://api.zhihu.com/banner - reject
-https://api.zhihu.com/search/preset_words - reject
-https://api.zhihu.com/zst/events - reject
+https://api.zhihu.com/questions/.*/banner_in_answer_list - reject
+
 https://app.bilibili.com/x/v2/param - reject
 https://app.bilibili.com/x/v2/search/defaultword - reject
 https://app.bilibili.com/x/v2/search/recommend - reject
@@ -92,8 +90,9 @@ http://interface.music.163.com/eapi/ad - reject
 http://wap.cmpassport.com/openapi - reject
 http://interface.music.163.com/api/sp - reject
 
-
 [MITM]
+skip-server-cert-verify = true
+tcp-connection = true
 hostname = api.zhihu.com, app.bilibili.com, api.bilibili.com
 
 [Script]
