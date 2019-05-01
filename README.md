@@ -7,6 +7,8 @@
 
 - Netease Music  必须旧版本：5.9.0     Version Id：830130298
 
+- [下载旧版app方法](https://gist.github.com/yangshaoshun/443f555dc7cc449d4ed990542a766871)
+
 ### 功能
 - 知乎:
 
@@ -92,9 +94,11 @@ https://app.bilibili.com/x/v2/search/hot - reject
 https://app.bilibili.com/x/v2/rank.*rid=168 - reject
 https://app.bilibili.com/x/v2/rank.*rid=5 - reject
 https://api.bilibili.com/pgc/season/rank/cn - reject
+
 http://interface.music.163.com/eapi/ad - reject
-http://wap.cmpassport.com/openapi - reject
 http://interface.music.163.com/api/sp - reject
+http://wap.cmpassport.com/openapi - reject
+
 
 [MITM]
 skip-server-cert-verify = true
