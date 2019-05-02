@@ -1,9 +1,9 @@
 
 ### For Bilibii, Zhihu, Netease Music
 
-- Zhihu          1年内版本都可以  
+- Zhihu         
 
-- BiliBili       哔哩哔哩**概念版(蓝色)**：2.0
+- BiliBili      
 
 - Netease Music  必须旧版本：5.9.0     Version Id：830130298
 
@@ -15,7 +15,9 @@
    * 完美去广告
 
 - B站:
-
+ 
+  * 主版和概念版都已支持，概念版刷新更快，更简洁
+  
   * 完美去广告
  
 - 网易云:
@@ -38,6 +40,7 @@ AND,((USER-AGENT,osee2*), (NOT,((DOMAIN,api.zhihu.com))), (NOT,((DOMAIN,static.z
 USER-AGENT,AVOS*,REJECT
 
 //BiliBili
+AND,((USER-AGENT,bili-univeral*), (DOMAIN,api.weibo.com)),REJECT
 AND,((USER-AGENT,bili-blue*), (DOMAIN,api.weibo.com)),REJECT
 DOMAIN,thirdparty.biliapi.com,REJECT
 DOMAIN,data.bilibili.com,REJECT
@@ -81,16 +84,6 @@ DOMAIN,cgi.connect.qq.com,REJECT
 
 
 [URL Rewrite]
-https://api.zhihu.com/ab/api - reject
-https://api.zhihu.com/zst/events - reject
-https://api.zhihu.com/ad-style-service/request - reject
-https://api.zhihu.com/real_time - reject
-https://api.zhihu.com/banners - reject
-https://api.zhihu.com/market/popover - reject
-https://api.zhihu.com/launch - reject
-https://api.zhihu.com/search/top_search - reject
-https://api.zhihu.com/search/tabs  header
-
 https://app.bilibili.com/x/v2/param - reject
 https://app.bilibili.com/x/v2/search/defaultword - reject
 https://app.bilibili.com/x/v2/search/recommend - reject
@@ -98,10 +91,19 @@ https://app.bilibili.com/x/v2/search/hot - reject
 https://app.bilibili.com/x/v2/rank.*rid=168 - reject
 https://app.bilibili.com/x/v2/rank.*rid=5 - reject
 https://api.bilibili.com/pgc/season/rank/cn - reject
-
+http://app.bilibili.com/x/v2/dataflow - reject
 http://interface.music.163.com/eapi/ad - reject
-http://interface.music.163.com/api/sp - reject
 http://wap.cmpassport.com/openapi - reject
+http://interface.music.163.com/api/sp - reject
+https://api.zhihu.com/ab/api - reject
+https://api.zhihu.com/ad-style-service/request - reject
+https://api.zhihu.com/real_time - reject
+https://api.zhihu.com/banners - reject
+https://api.zhihu.com/market/popover - reject
+https://api.zhihu.com/launch - reject
+https://api.zhihu.com/search/top_search - reject
+https://api.zhihu.com/search/tabs - reject
+https://api.zhihu.com/zst - reject
 
 
 [MITM]
