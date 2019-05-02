@@ -12,9 +12,7 @@
 ### 功能
 - 知乎:
 
-  * 有些时候无法MITM api.zhihu.com, 立刻重启Surge,多试几次就可以。
-  * api.zhihu.com 可能无法MITM的原因
-    * ![](https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/zhihu%20有可能失败的原因.png)
+   * 完美去广告
 
 - B站:
 
@@ -107,6 +105,7 @@ http://wap.cmpassport.com/openapi - reject
 
 
 [MITM]
+auto-bypass=false
 skip-server-cert-verify = true
 tcp-connection = true
 hostname = api.zhihu.com, app.bilibili.com, api.bilibili.com
