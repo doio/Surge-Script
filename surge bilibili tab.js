@@ -7,7 +7,7 @@ obj2=obj['data']['bottom'];
 
 obj1.forEach(function (element, index, array) {
   
-    if(element['name']!="追番"&&element['name']!="推荐"&&element['name']!="直播"){      
+    if(element['name']!="追番"&&element['name']!="推荐"&&element['name']!="直播"&&element['name']!="热门"&&element['name']!="影视"){      
        obj1.splice(index,1)  
     }
 
