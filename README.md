@@ -13,7 +13,7 @@
 - 知乎:
 
   * 有些时候无法MITM api.zhihu.com, 立刻重启Surge,多试几次就可以。
-  * [api.zhihu.com 可能无法MITM的原因](https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/zhihu%20有可能失败的原因.png)
+  * ![api.zhihu.com 可能无法MITM的原因](https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/zhihu%20有可能失败的原因.png)
 
 - B站:
 
