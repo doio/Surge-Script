@@ -1,7 +1,7 @@
 
 ### For BiliBili, Zhihu, Netease Music
 - Block ADs   
-- Support lastest app version
+- Support latest app version
 
 ```
 [Rule]
