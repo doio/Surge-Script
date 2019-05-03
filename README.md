@@ -1,37 +1,14 @@
 
-### For Bilibii, Zhihu, Netease Music
-
-- Zhihu         
-
-- BiliBili      
-
-- Netease Music  必须旧版本：5.9.0     Version Id：830130298
-
-- [下载旧版app方法](https://gist.github.com/yangshaoshun/443f555dc7cc449d4ed990542a766871)
-
-### 功能
-- 知乎:
-
-   * 完美去广告
-
-- B站:
- 
-  * 主版和概念版都已支持，概念版刷新更快，更简洁
-  
-  * 完美去广告
- 
-- 网易云:
-
-  * 无法MITM interface.music.163.com 但足够用了。只保证我使用版本的去广告(必须旧版本：5.9.0)。不会再升级，本身功能已足够。
-
+### For BiliBili, Zhihu, Netease Music
+- Block ADs   
+- Support lastest app version
 
 ```
 [Rule]
 
-//Netease music
-DOMAIN,admusicpic.music.126.net,REJECT
-DOMAIN,iadmusicmat.music.126.net,REJECT
+//Netease Music
 AND,((USER-AGENT,%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90*), (NOT,((DOMAIN-SUFFIX,music.126.net)))),REJECT
+AND,((USER-AGENT,NeteaseMusic*), (NOT,((DOMAIN-SUFFIX,music.163.com)))),REJECT
 USER-AGENT,neteasemusic*,REJECT
 
 //Zhihu
@@ -47,7 +24,8 @@ DOMAIN,data.bilibili.com,REJECT
 DOMAIN,cm.bilibili.com,REJECT
 DOMAIN,miniapp.bilibili.com,REJECT
 
-//Advertise
+//Thirdparty Advertise
+DOMAIN-KEYWORD,dataflow,REJECT
 DOMAIN-KEYWORD,inmobi,REJECT
 DOMAIN,app.adjust.com,REJECT
 DOMAIN-KEYWORD,adsystem,REJECT
@@ -74,6 +52,14 @@ DOMAIN-SUFFIX,catch.gift,REJECT
 DOMAIN-SUFFIX,pubnative.net,REJECT
 DOMAIN-SUFFIX,flurry.com,REJECT
 
+//Google&Youtube
+DOMAIN,mtalk.google.com,REJECT
+DOMAIN,ssl.google-analytics.com,REJECT
+DOMAIN,suggestqueries.google.com,REJECT
+DOMAIN,www.googleadservices.com,REJECT
+DOMAIN-SUFFIX,doubleclick.net,REJECT
+DOMAIN-KEYWORD,adservice,REJECT
+
 //QQ
 DOMAIN,pingma.qq.com,REJECT
 DOMAIN,fusion.qq.com,REJECT
@@ -92,31 +78,34 @@ https://app.bilibili.com/x/v2/rank.*rid=168 - reject
 https://app.bilibili.com/x/v2/rank.*rid=5 - reject
 https://api.bilibili.com/pgc/season/rank/cn - reject
 http://app.bilibili.com/x/v2/dataflow - reject
-http://interface.music.163.com/eapi/ad - reject
-http://wap.cmpassport.com/openapi - reject
-http://interface.music.163.com/api/sp - reject
+
+https://api.zhihu.com.*launch.* - reject
 https://api.zhihu.com/ab/api - reject
 https://api.zhihu.com/ad-style-service/request - reject
-https://api.zhihu.com/real_time - reject
 https://api.zhihu.com/banners - reject
 https://api.zhihu.com/market/popover - reject
-https://api.zhihu.com/launch - reject
 https://api.zhihu.com/search/top_search - reject
 https://api.zhihu.com/search/tabs - reject
 https://api.zhihu.com/zst - reject
+https://api.zhihu.com/answers/.*/comments/featured-comment-ad - reject
+
+http://interface.music.163.com/eapi/ad - reject
+http://iadmusicmat.music.126.net/.*jpg$ - reject
+http://p.c.music.126.net/.*jpg$ - reject
 
 
 [MITM]
 auto-bypass=false
 skip-server-cert-verify = true
 tcp-connection = true
-hostname = api.zhihu.com, app.bilibili.com, api.bilibili.com
+hostname = api.zhihu.com, app.bilibili.com, api.bilibili.com, interface.music.163.com
 
 [Script]
 http-response https://api.zhihu.com/topstory/follow script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20zhihu%20feed.js
 http-response https://api.zhihu.com/topstory/recommend script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20zhihu%20recommend.js
 http-response https://api.zhihu.com/v4/questions script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20zhihu%20answer.js
 http-response https://api.zhihu.com/market/header script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20zhihu%20market.js
+
 http-response https://app.bilibili.com/x/resource/show/tab script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20tab.js
 http-response https://app.bilibili.com/x/channel/list script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20channel.js
 http-response https://app.bilibili.com/x/v2/feed script-path=https://raw.githubusercontent.com/onewayticket255/Surge-Script/master/surge%20bilibili%20feed.js
